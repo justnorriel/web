@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMs</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <li>
+                <a href="#">DOM Events Examples</a>
+            </li>    
+        </div>
+    </header>
+    <main>
+    <div id="myElement">Hover me</div>
+    
+    <input type="text" id="myInput" placeholder="Type something">
+    
+    <form id="myForm">
+        <input type="text" name="username" placeholder="Username">
+        <button type="submit">Submit</button>
+    </form>
+    
+    <p id="resizeMessage">Window dimensions: </p>
+    
+    <div id="dblClickDiv">Double click me</div>
+    </main>
+    <script>
+        // Mouseover and Mouseout Events
+        const element = document.getElementById('myElement');
+        
+        element.addEventListener('mouseover', () => {
+            element.style.backgroundColor = 'lightgreen';
+        });
+        
+        element.addEventListener('mouseout', () => {
+            element.style.backgroundColor = 'lightblue';
+        });
+        
+        // Keydown Event
+        const input = document.getElementById('myInput');
+        
+        input.addEventListener('keydown', (event) => {
+            console.log(`Key pressed: ${event.key}`);
+        });
+        
+        // Form Submission
+        const form = document.getElementById('myForm');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            console.log(formData.get('username'));
+        });
+        
+        // Window Resize Event
+        const resizeMessage = document.getElementById('resizeMessage');
+        
+        function updateMessage() {
+            resizeMessage.textContent = `Window dimensions: ${window.innerWidth} x ${window.innerHeight}`;
+        }
+        
+        window.addEventListener('resize', updateMessage);
+        updateMessage(); // Initial update
+        
+        // Double Click Event
+        const dblClickDiv = document.getElementById('dblClickDiv');
+        const messages = [
+            "Double click event occurred!",
+            "You double clicked again!",
+            "Keep double clicking!",
+            "Wow, another double click!",
+            "It's a double click party!"
+        ];
+        let messageIndex = 0;
+
+        dblClickDiv.addEventListener('dblclick', () => {
+            dblClickDiv.textContent = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+        });
+
+    </script>
+</body>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+          font-family: 'Urbanist', sans-serif;
+background-color: #181818; /* Dark background */
+color: #e0e0e0; /* Light text color */
+    }
+    main{
+        width: 400px;
+        height: 400px;
+  border-radius: 40px;
+  background-color: #222; /* Dark container background */
+  box-shadow: 0 4px 8px rgba(206, 206, 206, 0.3);
+  max-width: 350px;
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+}
+    
+
+
+    #myElement {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 100px;
+        cursor: pointer;
+        color: #181818;
+        border-radius: 30px;
+background-color: #222; /* Dark container background */
+box-shadow: 0 4px 8px rgba(206, 206, 206, 0.3);
+max-width: 350px;
+margin: 40px auto;
+padding: 20px;
+text-align: center;
+    }
+                nav {
+        background-color: #222; /* Dark navigation background */
+        overflow: hidden;
+        text-align: right;
+        padding: 10px 40px;
+        }
+
+        .nav a {
+        font-weight: 600;
+        color: #e0e0e0; /* Light text color */
+        text-decoration: none;
+        font-size: 17px;
+        margin: 0 10px;
+        list-style: none;
+        }
+        .nav li{
+            list-style-type: none;
+        }
+
+        .nav a:hover {
+        color: #fff; /* Light text color on hover */
+        }
+</style>
+</html>
