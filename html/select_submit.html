@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="select_submit.css">
+</head>
+<body>
+    <script>
+        function validateForm(event) {
+          // Get the input element
+          var input = document.getElementById("myInput");
+          // Get the input value
+          var value = input.value;
+          // Check if the input value is empty
+          if (value == "") {
+            // Prevent the default action of submitting the form
+            event.preventDefault();
+            // Display an alert message
+            alert("Please enter some text!");
+          }
+          else{
+            alert(value);
+          }
+        }
+        function showSelection(event) {
+          // Get the input element
+          var input = document.getElementById("myInput");
+          // Get the selected text
+          var selection = event.target.value.substring(
+            event.target.selectionStart,
+            event.target.selectionEnd
+          );
+          // Display the selected text in an alert message
+          alert("You selected: " + selection);
+        }
+        </script>
+        </head>
+        <body>
+        
+        <h1 class="title">Sample Website with Select Event Inside the Form</h1>
+        
+        
+        <form onsubmit="validateForm(event)" class="container">
+
+        <input class="input" type="text" id="myInput" onselect="showSelection(event)" placeholder="Enter text">
+        <button class="label" type="submit">Submit</button>
+        </form>
+        
+        </body>
+</body>
+</html>
