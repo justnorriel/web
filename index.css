@@ -1,0 +1,93 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+      font-family: 'Urbanist', sans-serif;
+      background-color: #181818; /* Dark background */
+      color: #e0e0e0; /* Light text color */
+      text-align: center; /* Center text in the body */
+  }
+  
+  /* Style for navigation */
+  .nav {
+    font-family: 'Urbanist', sans-serif;
+    background-color: #3F58C0; /* Adjust opacity to your preference */
+    padding: 10px 40px;
+    backdrop-filter: blur(10px); /* Apply a blur effect */
+    overflow: hidden;
+    text-align: right;
+  }
+  
+  /* Add styles for the logo */
+  .logo {
+      float: left; /* Move the logo to the left */
+      margin-right: 5px; /* Add some right margin for spacing */
+  }
+  
+  /* Add styles for the navigation links */
+  .link {
+      float: right; /* Move the links to the right */
+  }
+  
+  .nav a {
+    font-weight: 600;
+    color: #e0e0e0; /* Light text color */
+    text-decoration: none;
+    font-size: 25px;
+    margin: 0 10px;
+    user-select: none;
+  }
+  
+  .nav ul{
+      list-style-type:none;
+  }
+  
+  .nav a.link:hover {
+    color: #FF8C8C; /* Light text color on hover */
+    background-color: #FFD966; /* Change background color on hover */ 
+    border-radius: 5px; /* Add rounded corners on hover */ 
+  }
+img{
+    height: 200px;
+    width: 320px;
+    border-radius: 8px;
+}
+  .container-img{
+    padding-top: 40px;
+    width:100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+  }  
+  
+  button{
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  video{
+    height: 200px;
+    width: 200px;
+    border-radius: 8px;
+}
+  .videos{
+    padding-top: 1px;
+    width:80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px;
+  }  
+  

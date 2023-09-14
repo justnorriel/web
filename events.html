@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Events Examples</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 1500PX;
+            margin: 0;
+            font-family: 'Urbanist', sans-serif;
+            background-color: #181818; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+        }
+        main {
+            width: 400px;
+            height: 800px;
+            border-radius: 40px;
+            background-color: #222; /* Dark container background */
+            box-shadow: 0 4px 8px rgba(206, 206, 206, 0.3);
+            max-width: 350px;
+            margin: 40px auto;
+            padding: 10px;
+            text-align: center;
+        }
+        #myElement {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+            color: #181818;
+            border-radius: 30px;
+            background-color: #222; /* Dark container background */
+            box-shadow: 0 4px 8px rgba(206, 206, 206, 0.3);
+            max-width: 350px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }  @import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+
+
+        
+        /* Style for navigation */
+        .nav {
+          font-family: 'Urbanist', sans-serif;
+          background-color: #3F58C0; /* Adjust opacity to your preference */
+          padding: 10px 40px;
+          backdrop-filter: blur(10px); /* Apply a blur effect */
+          overflow: hidden;
+          text-align: right;
+        }
+        
+        /* Add styles for the logo */
+        .logo {
+            float: left; /* Move the logo to the left */
+            margin-right: 5px; /* Add some right margin for spacing */
+        }
+        
+        /* Add styles for the navigation links */
+        .link {
+            float: right; /* Move the links to the right */
+        }
+        
+        .nav a {
+          font-weight: 600;
+          color: #e0e0e0; /* Light text color */
+          text-decoration: none;
+          font-size: 25px;
+          margin: 0 10px;
+          user-select: none;
+        }
+        
+        .nav ul{
+            list-style-type:none;
+        }
+        
+        .nav a.link:hover {
+          color: #FF8C8C; /* Light text color on hover */
+          background-color: #FFD966; /* Change background color on hover */ 
+          border-radius: 5px; /* Add rounded corners on hover */ 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <ul>
+                <li>
+                    <a href="" class="logo">DOM</a>
+                    <a href="" title="">HOME</a>
+                    <a href="events.html" title="">EVENTS</a>
+                    <a href="" title="">ABOUT</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="myElement">Hover me</div>
+        
+        <input type="text" id="myInput" placeholder="Type something">
+        
+        <form id="myForm">
+            <input type="text" name="username" placeholder="Username">
+            <button type="submit">Submit</button>
+        </form>
+        
+        <p id="resizeMessage">Window dimensions: </p>
+        
+        <div id="dblClickDiv">Double click me</div>
+
+        <button id="clickButton">Click Me</button>
+        <p id="clickOutput">Button not clicked yet.</p>
+
+        <input type="text" id="focusInput" placeholder="Focus on me">
+        <p id="focusOutput">Input not focused.</p>
+
+        <div id="clickDiv">Click me</div>
+        <p id="clickDivOutput">Div not clicked yet.</p>
+
+        <div id="mousemoveDiv">Move your mouse over me</div>
+        <p id="mousemoveOutput">Mouse not moved yet.</p>
+
+        <input type="text" id="keyupInput" placeholder="Type something">
+        <p id="keyupOutput">No key pressed yet.</p>
+    </main>
+
+    <script>
+        // Mouseover and Mouseout Events
+        const element = document.getElementById('myElement');
+        
+        element.addEventListener('mouseover', () => {
+            element.style.backgroundColor = 'lightgreen';
+        });
+        
+        element.addEventListener('mouseout', () => {
+            element.style.backgroundColor = 'lightblue';
+        });
+        
+        // Keydown Event
+        const input = document.getElementById('myInput');
+        
+        input.addEventListener('keydown', (event) => {
+            console.log(`Key pressed: ${event.key}`);
+        });
+        
+        // Form Submission
+        const form = document.getElementById('myForm');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            console.log(formData.get('username'));
+        });
+        
+        // Window Resize Event
+        const resizeMessage = document.getElementById('resizeMessage');
+        
+        function updateMessage() {
+            resizeMessage.textContent = `Window dimensions: ${window.innerWidth} x ${window.innerHeight}`;
+        }
+        
+        window.addEventListener('resize', updateMessage);
+        updateMessage(); // Initial update
+        
+        // Double Click Event
+        const dblClickDiv = document.getElementById('dblClickDiv');
+        const messages = [
+            "Double click event occurred!",
+            "You double clicked again!",
+            "Keep double clicking!",
+            "Wow, another double click!",
+            "It's a double click party!"
+        ];
+        let messageIndex = 0;
+
+        dblClickDiv.addEventListener('dblclick', () => {
+            dblClickDiv.textContent = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+        });
+
+        // Click Event on a Button
+        const clickButton = document.getElementById('clickButton');
+        const clickOutput = document.getElementById('clickOutput');
+
+        clickButton.addEventListener('click', () => {
+            clickOutput.textContent = 'Button clicked!';
+        });
+
+        // Focus and Blur Events on an Input
+        const focusInput = document.getElementById('focusInput');
+        const focusOutput = document.getElementById('focusOutput');
+
+        focusInput.addEventListener('focus', () => {
+            focusOutput.textContent = 'Input focused.';
+        });
+
+        focusInput.addEventListener('blur', () => {
+            focusOutput.textContent = 'Input blurred.';
+        });
+
+        // Mouse Click Event on a Div
+        const clickDiv = document.getElementById('clickDiv');
+        const clickDivOutput = document.getElementById('clickDivOutput');
+
+        clickDiv.addEventListener('click', () => {
+            clickDivOutput.textContent = 'Div clicked!';
+        });
+
+        // Mouse Move Event on a Div
+        const mousemoveDiv = document.getElementById('mousemoveDiv');
+        const mousemoveOutput = document.getElementById('mousemoveOutput');
+
+        mousemoveDiv.addEventListener('mousemove', () => {
+            mousemoveOutput.textContent = 'Mouse moved over the div.';
+        });
+
+        // Keyup Event on an Input
+        const keyupInput = document.getElementById('keyupInput');
+        const keyupOutput = document.getElementById('keyupOutput');
+
+        keyupInput.addEventListener('keyup', (event) => {
+            keyupOutput.textContent = `Key pressed: ${event.key}`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <ul>
+                <li>
+                    <a href="" class="logo">CHANGE</a>
+                    <a href="" title="">HOME</a>
+                    <a href="events.html" title="">EVENTS</a>
+                    <a href="" title="">ABOUT</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container-img">
+            <div>
+                <img id='cat-sleep' src="cat-sleep.jpg" alt="">
+                <div class="first-img-btn"><button id="change-first-img-btn">CHANGE CAT IMAGE</button></div>
+            </div>
+            <div>
+                <img id='dog-sleep' src="dog-sleep.jpg" alt="">
+                <div class="second-img-btn"><button id="change-second-img-btn">CHANGE DOG IMAGE</button></div>
+            </div>
+            <div>
+                <img id='goat-sleep' src="goat-sleep.jpg" alt="">
+                <div class="third-img-btn"><button id="change-third-img-btn">CHANGE GOAT IMAGE</button></div>
+            </div>
+        </div>
+
+        <!-- Add three video elements -->
+        <div class="videos">
+            <video id="cat-video" controls width="320" height="240">
+                <source src="cat-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-btn"><button id="change-cat-video-btn">CHANGE CAT VIDEO</button></div>
+
+            <video id="dog-video" controls width="320" height="240">
+                <source src="dog-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-btn"><button id="change-dog-video-btn">CHANGE DOG VIDEO</button></div>
+
+            <video id="goat-video" controls width="320" height="240">
+                <source src="goat-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-btn"><button id="change-goat-video-btn">CHANGE GOAT VIDEO</button></div>
+        </div>
+    </main>
+
+    <script>
+        // Image change logic (you already have this)
+
+        const catImageElement = document.getElementById("cat-sleep");
+        const catButtonElement = document.getElementById("change-first-img-btn");
+
+        catButtonElement.addEventListener('click', function(){
+            catImageElement.src = 'cat-wake.jpg';
+            catButtonElement.textContent = "Cat image changed!";
+        })
+
+        const dogImageElement = document.getElementById("dog-sleep");
+        const dogButtonElement = document.getElementById("change-second-img-btn");
+
+        dogButtonElement.addEventListener('click', function(){
+            dogImageElement.src = 'dog-wake.jpg';
+            dogButtonElement.textContent = "Dog image changed!";
+        })
+
+        const goatImageElement = document.getElementById("goat-sleep");
+        const goatButtonElement = document.getElementById("change-third-img-btn");
+
+        goatButtonElement.addEventListener('click', function(){
+            goatImageElement.src = 'goat-wake.jpg';
+            goatButtonElement.textContent = "Goat image changed!";
+        })
+
+        // Video change logic
+        const catVideoElement = document.getElementById("cat-video");
+        const catVideoButtonElement = document.getElementById("change-cat-video-btn");
+
+        catVideoButtonElement.addEventListener('click', function(){
+            catVideoElement.src = 'cat-wake-video.mp4';
+            catVideoButtonElement.textContent = "Cat video changed!";
+        })
+
+        const dogVideoElement = document.getElementById("dog-video");
+        const dogVideoButtonElement = document.getElementById("change-dog-video-btn");
+
+        dogVideoButtonElement.addEventListener('click', function(){
+            dogVideoElement.src = 'dog-wake-video.mp4';
+            dogVideoButtonElement.textContent = "Dog video changed!";
+        })
+
+        const goatVideoElement = document.getElementById("goat-video");
+        const goatVideoButtonElement = document.getElementById("change-goat-video-btn");
+
+        goatVideoButtonElement.addEventListener('click', function(){
+            goatVideoElement.src = 'goat-wake-video.mp4';
+            goatVideoButtonElement.textContent = "Goat video changed!";
+        })
+    </script>
+</body>
+</html>
